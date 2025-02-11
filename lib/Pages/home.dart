@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       body: Container(
-        margin: EdgeInsets.only(top: 40, left: 25),
+        margin: const EdgeInsets.only(top: 40, left: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
                 Text(
                   "Brief",
                   style: TextStyle(
-                      color: Color(0xff3280ef),
+                      color: const Color(0xff3280ef),
                       fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
@@ -36,95 +36,167 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
-            SizedBox(
-              height: 25,
-            ),
-            Text(
+            const SizedBox(height: 25),
+            const Text(
               "Hottest News",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 22,
                   fontWeight: FontWeight.w500),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Material(
-                  elevation: 2,
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              "assets/images/news1.jpg",
-                              width: MediaQuery.of(context).size.width / 1.8,
-                              height: 150,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 1.8,
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            "Hottest News",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 5, right: 5),
-                          width: MediaQuery.of(context).size.width / 1.8,
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            style: TextStyle(
-                                color: const Color.fromARGB(151, 0, 0, 0),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Container(
-                          width: 100,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Color(0xff3280ef),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                            ),
-                          ),
-                          margin: EdgeInsets.only(left: 160),
-                          child: Icon(
-                            Icons.arrow_forward_ios_rounded,
+            const SizedBox(height: 10),
+            Container(
+              height: MediaQuery.of(context).size.height / 2.91,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: 3, left: 5),
+                    child: Material(
+                      elevation: 2,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
                             color: Colors.white,
-                            size: 30,
-                          ),
-                        )
-                      ],
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset(
+                                  "assets/images/news1.jpg",
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.8,
+                                  height: 150,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Hottest News",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: const Color.fromARGB(188, 0, 0, 0),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: const Color.fromARGB(151, 0, 0, 0),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Spacer(),
+                            Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: const Color(0xff3280ef),
+                                borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(10)),
+                              ),
+                              margin: const EdgeInsets.only(left: 160),
+                              child: const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                )
-              ],
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 3, left: 5),
+                    child: Material(
+                      elevation: 2,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset(
+                                  "assets/images/news1.jpg",
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.8,
+                                  height: 150,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Hottest News",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: const Color.fromARGB(188, 0, 0, 0),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: const Color.fromARGB(151, 0, 0, 0),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Spacer(),
+                            Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: const Color(0xff3280ef),
+                                borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(10)),
+                              ),
+                              margin: const EdgeInsets.only(left: 160),
+                              child: const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
