@@ -1,4 +1,5 @@
 import 'package:briefly/Models/category_model.dart';
+import 'package:briefly/Services/data.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,6 +11,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<CategoryModel> categories = [];
+
+  @override
+  void initState() {
+    categories = getCategories();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +205,17 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Explore",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500),
+            ),
           ],
         ),
       ),
