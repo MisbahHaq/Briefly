@@ -51,8 +51,8 @@ class _HomeState extends State<Home> {
               "Hottest News",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             Container(
@@ -214,7 +214,7 @@ class _HomeState extends State<Home> {
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 26,
-                  fontWeight: FontWeight.w500),
+                  fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 10,
@@ -232,6 +232,29 @@ class _HomeState extends State<Home> {
                     );
                   }),
             ),
+            const Text(
+              "Trending News",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/news1.jpg",
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
