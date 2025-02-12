@@ -213,11 +213,51 @@ class _HomeState extends State<Home> {
               "Explore",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 22,
+                  fontSize: 26,
                   fontWeight: FontWeight.w500),
             ),
+            ListView.builder(
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return CategoryTile();
+                })
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CategoryTile extends StatelessWidget {
+  final image, Categoryname;
+  CategoryTile({this.Categoryname, this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          ClipRRect(
+              borderRadius: BorderRadius.circular(60),
+              child: Image.asset(
+                image,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              )),
+          Container(
+            height: 100,
+            width: 100,
+            child: Text(
+              Categoryname,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
