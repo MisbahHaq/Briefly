@@ -1,3 +1,4 @@
+import 'package:briefly/Models/category_model.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -8,6 +9,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<CategoryModel> categories = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
