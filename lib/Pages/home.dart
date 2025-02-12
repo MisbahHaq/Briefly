@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     categories = getCategories();
+    getNews();
     super.initState();
   }
 
@@ -75,7 +76,10 @@ class _HomeState extends State<Home> {
               Container(
                 height: MediaQuery.of(context).size.height / 2.7,
                 child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
+                  itemCount: articles.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       margin: EdgeInsets.only(bottom: 3, left: 5),
@@ -92,8 +96,8 @@ class _HomeState extends State<Home> {
                                 padding: const EdgeInsets.all(10),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    "assets/images/news1.jpg",
+                                  child: Image.network(
+                                    articles[index].urlToImage!,
                                     width:
                                         MediaQuery.of(context).size.width / 1.8,
                                     height: 150,
@@ -105,7 +109,7 @@ class _HomeState extends State<Home> {
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.8,
                                 child: Text(
-                                  "Hottest News",
+                                  articles[index].title!,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: const Color.fromARGB(188, 0, 0, 0),
@@ -117,7 +121,7 @@ class _HomeState extends State<Home> {
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.8,
                                 child: Text(
-                                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                  articles[index].desc!,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: const Color.fromARGB(151, 0, 0, 0),
