@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
             ),
             const SizedBox(height: 10),
             Container(
-              height: MediaQuery.of(context).size.height / 2.91,
+              height: MediaQuery.of(context).size.height / 2.5,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -96,7 +96,6 @@ class _HomeState extends State<Home> {
                                     color: const Color.fromARGB(151, 0, 0, 0),
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold),
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             Spacer(),
@@ -170,7 +169,6 @@ class _HomeState extends State<Home> {
                                     color: const Color.fromARGB(151, 0, 0, 0),
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold),
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             Spacer(),
