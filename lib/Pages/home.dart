@@ -216,11 +216,22 @@ class _HomeState extends State<Home> {
                   fontSize: 26,
                   fontWeight: FontWeight.w500),
             ),
-            ListView.builder(
-                itemCount: categories.length,
-                itemBuilder: (context, index) {
-                  return CategoryTile();
-                })
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 150,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      Categoryname: categories[index].CategoryName,
+                      image: categories[index].image,
+                    );
+                  }),
+            ),
           ],
         ),
       ),
@@ -235,25 +246,39 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right: 20),
       child: Stack(
         children: [
           ClipRRect(
               borderRadius: BorderRadius.circular(60),
               child: Image.asset(
                 image,
-                height: 100,
-                width: 100,
+                height: 130,
+                width: 130,
                 fit: BoxFit.cover,
               )),
           Container(
-            height: 100,
-            width: 100,
-            child: Text(
-              Categoryname,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
+            height: 130,
+            width: 130,
+            decoration: BoxDecoration(
+              color: Colors.black26,
+              borderRadius: BorderRadius.circular(60),
+            ),
+          ),
+          Container(
+            height: 130,
+            width: 130,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: Center(
+              child: Text(
+                Categoryname,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           )
