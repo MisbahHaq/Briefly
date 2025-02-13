@@ -58,10 +58,18 @@ class _CategoryNewsState extends State<CategoryNews> {
                 ],
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [Text("data")],
+                ),
               ),
             )
           ],
