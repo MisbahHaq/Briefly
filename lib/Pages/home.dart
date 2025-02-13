@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          margin: const EdgeInsets.only(top: 40, left: 25),
+          margin: const EdgeInsets.only(top: 60, left: 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 10),
               Container(
-                height: MediaQuery.of(context).size.height / 2.7,
+                height: MediaQuery.of(context).size.height / 2.91,
                 child: ListView.builder(
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
                   itemCount: articles.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      margin: EdgeInsets.only(bottom: 3, left: 5),
+                      margin: EdgeInsets.only(bottom: 3, left: 10),
                       child: Material(
                         elevation: 2,
                         borderRadius: BorderRadius.circular(10),
@@ -109,6 +109,7 @@ class _HomeState extends State<Home> {
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.8,
                                 child: Text(
+                                  maxLines: 2,
                                   articles[index].title!,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -121,7 +122,9 @@ class _HomeState extends State<Home> {
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.8,
                                 child: Text(
+                                  maxLines: 2,
                                   articles[index].desc!,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: const Color.fromARGB(151, 0, 0, 0),
@@ -139,7 +142,7 @@ class _HomeState extends State<Home> {
                                       topLeft: Radius.circular(20),
                                       bottomRight: Radius.circular(10)),
                                 ),
-                                margin: const EdgeInsets.only(left: 160),
+                                margin: const EdgeInsets.only(left: 175),
                                 child: const Icon(
                                   Icons.arrow_forward_ios_rounded,
                                   color: Colors.white,
