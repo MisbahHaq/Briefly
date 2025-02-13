@@ -24,8 +24,9 @@ class _CategoryNewsState extends State<CategoryNews> {
   getNews() async {
     ShowCategoryNews showCategoryNews = ShowCategoryNews();
     await showCategoryNews.getCategoryNews(widget.name.toLowerCase());
-    categories = showCategoryNews.categories;
+
     setState(() {
+      categories = showCategoryNews.categories;
       loading = false;
     });
   }
@@ -100,57 +101,54 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Navigator.push(context,
-        //     MaterialPageRoute(builder: (context) => ArticleView(blogUrl: url)));
-      },
-      child: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, top: 40),
-        child: Column(
-          children: [
-            Container(
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(244, 255, 255, 255)),
-              margin: EdgeInsets.all(25),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      image,
-                    ),
+    return Container(
+      margin: EdgeInsets.only(
+        left: 20,
+        right: 20,
+      ),
+      child: Column(
+        children: [
+          Container(
+            decoration:
+                BoxDecoration(color: Color.fromARGB(244, 255, 255, 255)),
+            margin: EdgeInsets.all(25),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    image,
                   ),
-                  SizedBox(
-                    height: 5,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        color: Color.fromARGB(188, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                          color: Color.fromARGB(188, 0, 0, 0),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
+                ),
+                SizedBox(height: 5),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    desc,
+                    maxLines: 2,
+                    style: TextStyle(
+                        color: Color.fromARGB(151, 0, 0, 0),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      desc,
-                      maxLines: 3,
-                      style: TextStyle(
-                          color: Color.fromARGB(151, 0, 0, 0),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

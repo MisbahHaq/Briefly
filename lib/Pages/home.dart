@@ -1,5 +1,6 @@
 import 'package:briefly/Models/article_model.dart';
 import 'package:briefly/Models/category_model.dart';
+import 'package:briefly/Pages/article_view.dart';
 import 'package:briefly/Pages/category_news.dart';
 import 'package:briefly/Services/data.dart';
 import 'package:briefly/Services/news.dart';
@@ -82,75 +83,82 @@ class _HomeState extends State<Home> {
                   scrollDirection: Axis.horizontal,
                   itemCount: articles.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 3, left: 10),
-                      child: Material(
-                        elevation: 2,
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    articles[index].urlToImage!,
-                                    width:
-                                        MediaQuery.of(context).size.width / 1.8,
-                                    height: 150,
-                                    fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 3, left: 10, right: 10),
+                        child: Material(
+                          elevation: 2,
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.network(
+                                      articles[index].urlToImage!,
+                                      width: MediaQuery.of(context).size.width /
+                                          1.8,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(height: 10),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.8,
-                                child: Text(
-                                  maxLines: 2,
-                                  articles[index].title!,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: const Color.fromARGB(188, 0, 0, 0),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                                const SizedBox(height: 3),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.8,
+                                  child: Text(
+                                    maxLines: 2,
+                                    articles[index].title!,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color:
+                                            const Color.fromARGB(188, 0, 0, 0),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 5),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.8,
-                                child: Text(
-                                  maxLines: 2,
-                                  articles[index].desc!,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: const Color.fromARGB(151, 0, 0, 0),
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
+                                const SizedBox(height: 2),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.8,
+                                  child: Text(
+                                    maxLines: 2,
+                                    articles[index].desc!,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color:
+                                            const Color.fromARGB(151, 0, 0, 0),
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
-                              Spacer(),
-                              Container(
-                                width: 100,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff3280ef),
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      bottomRight: Radius.circular(10)),
-                                ),
-                                margin: const EdgeInsets.only(left: 175),
-                                child: const Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                              )
-                            ],
+                                Spacer(),
+                                Container(
+                                  width: 100,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff3280ef),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        bottomRight: Radius.circular(10)),
+                                  ),
+                                  margin: const EdgeInsets.only(left: 175),
+                                  child: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

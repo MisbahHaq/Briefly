@@ -18,14 +18,14 @@
 //           mainAxisAlignment: MainAxisAlignment.center,
 //           children: [
 //             Text(
-//               "Buzz",
+//               "Brief",
 //               style: TextStyle(
 //                   color: Color(0xff3280ef),
 //                   fontSize: 30,
 //                   fontWeight: FontWeight.bold),
 //             ),
 //             Text(
-//               "Line",
+//               "ly",
 //               style: TextStyle(
 //                   color: Colors.black,
 //                   fontSize: 30,

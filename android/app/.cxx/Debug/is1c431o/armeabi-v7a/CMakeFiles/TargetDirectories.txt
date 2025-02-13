@@ -1,0 +1,2 @@
+C:/Users/Misbah/Desktop/Briefly/Briefly/android/app/.cxx/Debug/is1c431o/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Misbah/Desktop/Briefly/Briefly/android/app/.cxx/Debug/is1c431o/armeabi-v7a/CMakeFiles/rebuild_cache.dir
