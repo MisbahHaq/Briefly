@@ -1,4 +1,5 @@
 import 'package:briefly/Models/show_category.dart';
+import 'package:briefly/Pages/article_view.dart';
 import 'package:briefly/Services/show_category_news.dart';
 import 'package:flutter/material.dart';
 
@@ -41,25 +42,27 @@ class _CategoryNewsState extends State<CategoryNews> {
               padding: const EdgeInsets.only(left: 10),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width / 3.5,
+                    width: MediaQuery.of(context).size.width / 3.4,
                   ),
                   Text(
-                    "Business",
+                    widget.name,
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 28,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 20,
             ),
             Expanded(
               child: Container(
@@ -70,25 +73,80 @@ class _CategoryNewsState extends State<CategoryNews> {
                       topRight: Radius.circular(30)),
                   color: Colors.white,
                 ),
-                child: Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(244, 255, 255, 255)),
-                      margin: EdgeInsets.all(25),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              "assets/images/news1.jpg",
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      return CategoryTile(
+                        title: categories[index].title,
+                        desc: categories[index].desc,
+                        image: categories[index].urlToImage,
+                        url: categories[index].url,
+                      );
+                    }),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryTile extends StatelessWidget {
+  final image, title, desc, url;
+  CategoryTile({this.image, this.title, this.desc, this.url});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ArticleView(blogUrl: url)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: 20, right: 20, top: 40),
+        child: Column(
+          children: [
+            Container(
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(244, 255, 255, 255)),
+              margin: EdgeInsets.all(25),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      image,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          color: Color.fromARGB(188, 0, 0, 0),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text(
+                      desc,
+                      maxLines: 3,
+                      style: TextStyle(
+                          color: Color.fromARGB(151, 0, 0, 0),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
             )
           ],

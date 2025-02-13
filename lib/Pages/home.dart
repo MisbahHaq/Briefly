@@ -1,5 +1,6 @@
 import 'package:briefly/Models/article_model.dart';
 import 'package:briefly/Models/category_model.dart';
+import 'package:briefly/Pages/category_news.dart';
 import 'package:briefly/Services/data.dart';
 import 'package:briefly/Services/news.dart';
 import 'package:flutter/material.dart';
@@ -256,44 +257,52 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 20),
-      child: Stack(
-        children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(60),
-              child: Image.asset(
-                image,
-                height: 130,
-                width: 130,
-                fit: BoxFit.cover,
-              )),
-          Container(
-            height: 130,
-            width: 130,
-            decoration: BoxDecoration(
-              color: Colors.black26,
-              borderRadius: BorderRadius.circular(60),
-            ),
-          ),
-          Container(
-            height: 130,
-            width: 130,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-            ),
-            child: Center(
-              child: Text(
-                Categoryname,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => CategoryNews(name: Categoryname)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 20),
+        child: Stack(
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                child: Image.asset(
+                  image,
+                  height: 130,
+                  width: 130,
+                  fit: BoxFit.cover,
+                )),
+            Container(
+              height: 130,
+              width: 130,
+              decoration: BoxDecoration(
+                color: Colors.black26,
+                borderRadius: BorderRadius.circular(60),
               ),
             ),
-          )
-        ],
+            Container(
+              height: 130,
+              width: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+              ),
+              child: Center(
+                child: Text(
+                  Categoryname,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
