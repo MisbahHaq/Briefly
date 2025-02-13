@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          margin: const EdgeInsets.only(top: 60, left: 18),
+          margin: const EdgeInsets.only(top: 60, left: 18, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
