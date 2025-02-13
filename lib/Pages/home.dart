@@ -84,7 +84,16 @@ class _HomeState extends State<Home> {
                   itemCount: articles.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArticleView(
+                              article: articles[index],
+                            ),
+                          ),
+                        );
+                      },
                       child: Container(
                         margin: EdgeInsets.only(bottom: 3, left: 10, right: 10),
                         child: Material(
@@ -114,9 +123,9 @@ class _HomeState extends State<Home> {
                                   width:
                                       MediaQuery.of(context).size.width / 1.8,
                                   child: Text(
-                                    maxLines: 2,
                                     articles[index].title!,
                                     textAlign: TextAlign.center,
+                                    maxLines: 2,
                                     style: TextStyle(
                                         color:
                                             const Color.fromARGB(188, 0, 0, 0),
@@ -129,7 +138,6 @@ class _HomeState extends State<Home> {
                                   width:
                                       MediaQuery.of(context).size.width / 1.8,
                                   child: Text(
-                                    maxLines: 2,
                                     articles[index].desc!,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
@@ -208,57 +216,70 @@ class _HomeState extends State<Home> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: articles.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 20, right: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10)),
-                      ),
-                      child: Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                bottomLeft: Radius.circular(10)),
-                            child: Image.network(
-                              articles[index].urlToImage!,
-                              height: 120,
-                              width: 120,
-                              fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArticleView(
+                              article: articles[index],
                             ),
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.7,
-                                child: Text(
-                                  articles[index].title!,
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(188, 0, 0, 0),
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                        );
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10)),
+                        ),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10)),
+                              child: Image.network(
+                                articles[index].urlToImage!,
+                                height: 120,
+                                width: 120,
+                                fit: BoxFit.cover,
                               ),
-                              SizedBox(height: 5),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.8,
-                                child: Text(
-                                  articles[index].desc!,
-                                  maxLines: 3,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(151, 0, 0, 0),
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold),
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.7,
+                                  child: Text(
+                                    articles[index].title!,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Color.fromARGB(188, 0, 0, 0),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
+                                SizedBox(height: 5),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.8,
+                                  child: Text(
+                                    articles[index].desc!,
+                                    maxLines: 3,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Color.fromARGB(151, 0, 0, 0),
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },

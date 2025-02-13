@@ -1,3 +1,4 @@
+import 'package:briefly/Models/article_model.dart';
 import 'package:briefly/Models/show_category.dart';
 import 'package:briefly/Pages/article_view.dart';
 import 'package:briefly/Services/show_category_news.dart';
@@ -29,6 +30,16 @@ class _CategoryNewsState extends State<CategoryNews> {
       categories = showCategoryNews.categories;
       loading = false;
     });
+  }
+
+  // Method to convert ShowCategoryModel to ArticleModel
+  ArticleModel convertToArticleModel(ShowCategoryModel category) {
+    return ArticleModel(
+      title: category.title,
+      urlToImage: category.urlToImage,
+      desc: category.desc,
+      url: category.url,
+    );
   }
 
   @override
@@ -79,11 +90,29 @@ class _CategoryNewsState extends State<CategoryNews> {
                     shrinkWrap: true,
                     itemCount: categories.length,
                     itemBuilder: (context, index) {
-                      return CategoryTile(
-                        title: categories[index].title,
-                        desc: categories[index].desc,
-                        image: categories[index].urlToImage,
-                        url: categories[index].url,
+                      return GestureDetector(
+                        onTap: () {
+                          // Convert ShowCategoryModel to ArticleModel
+                          ArticleModel article =
+                              convertToArticleModel(categories[index]);
+
+                          // Navigate to the article view
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ArticleView(
+                                article:
+                                    article, // Pass the converted ArticleModel
+                              ),
+                            ),
+                          );
+                        },
+                        child: CategoryTile(
+                          title: categories[index].title,
+                          desc: categories[index].desc,
+                          image: categories[index].urlToImage,
+                          url: categories[index].url,
+                        ),
                       );
                     }),
               ),
