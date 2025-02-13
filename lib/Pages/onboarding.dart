@@ -1,3 +1,4 @@
+import 'package:briefly/Pages/home.dart';
 import 'package:flutter/material.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -60,27 +61,33 @@ class _OnBoardingState extends State<OnBoarding> {
                     SizedBox(
                       height: 25,
                     ),
-                    Container(
-                      margin: EdgeInsets.only(left: 40, right: 40),
-                      child: Material(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        elevation: 5,
-                        child: Container(
-                          height: 60,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: Color(0xff3280ef),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Get Started",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(left: 40, right: 40),
+                        child: Material(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                          elevation: 5,
+                          child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: Color(0xff3280ef),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Get Started",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ),

@@ -201,56 +201,69 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 10),
               Container(
-                margin: EdgeInsets.only(right: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10)),
-                ),
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10)),
-                      child: Image.asset(
-                        "assets/images/news1.jpg",
-                        height: 120,
-                        width: 120,
-                        fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: articles.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: EdgeInsets.only(bottom: 20, right: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10)),
                       ),
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width / 1.7,
-                          child: Text(
-                            "Hottest News",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color.fromARGB(188, 0, 0, 0),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10)),
+                            child: Image.network(
+                              articles[index].urlToImage!,
+                              height: 120,
+                              width: 120,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 5),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 1.8,
-                          child: Text(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color.fromARGB(151, 0, 0, 0),
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                          Column(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.7,
+                                child: Text(
+                                  articles[index].title!,
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(188, 0, 0, 0),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.8,
+                                child: Text(
+                                  articles[index].desc!,
+                                  maxLines: 3,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(151, 0, 0, 0),
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  },
                 ),
-              )
+              ),
             ],
           ),
         ),
