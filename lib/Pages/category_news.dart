@@ -65,10 +65,29 @@ class _CategoryNewsState extends State<CategoryNews> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
                   color: Colors.white,
                 ),
                 child: Column(
-                  children: [Text("data")],
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(244, 255, 255, 255)),
+                      margin: EdgeInsets.all(25),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/news1.jpg",
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             )
