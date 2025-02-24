@@ -1,16 +1,25 @@
-# briefly
+# Briefly: Personalized News at Your Fingertips  
 
-A new Flutter project.
+Briefly is a mobile application that delivers the latest news based on your selected categories. With real-time updates, an intuitive interface, and a seamless reading experience, you can stay informed on the topics that matter most to you.  
 
-## Getting Started
+## 📌 Features  
 
-This project is a starting point for a Flutter application.
+- **Category-Based News** – Choose from multiple categories like Technology, Sports, Business, Entertainment, and more.  
+- **Live News Fetching** – Uses an API to fetch and display up-to-date news articles.  
+- **User-Friendly UI** – A clean and minimalistic design for easy reading and navigation.  
+- **Article Details** – Click on any news card to view the full article.  
+- **Dark Mode Support** – Read comfortably in any lighting condition.  
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 Video  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/user-attachments/assets/41378f9f-087f-480b-a9e7-235e24b27d83
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## 🛠️ Technologies Used  
+
+- **Flutter** – For building a fast and responsive cross-platform app.  
+- **Dart** – For business logic and smooth app performance.  
+- **HTTP Package** – For fetching data from the news API.  
+
+
